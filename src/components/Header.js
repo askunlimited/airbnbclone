@@ -3,9 +3,10 @@ import { Box, Container } from '@mui/material'
 // import { Container } from '@mui/material/Container'
 
 import Logo from './Logo'
-import { flexBetweenCenter, dFlex } from 'themes/commonStyles'
+import { flexBetweenCenter, dFlex, displayOnDesktop } from 'themes/commonStyles'
 import LocationSearch from './LocationSearch'
 import ProfileSetiings from './ProfileSetiings'
+import MobileSearch from './MobileSearch'
 
 const Header = () => {
   return (
@@ -24,9 +25,18 @@ const Header = () => {
             px: 4,
           }}
         >
-          <Logo />
-          <LocationSearch />
-          <ProfileSetiings />
+          <Box sx={displayOnDesktop}>
+            <Logo />
+          </Box>
+          <Box sx={displayOnDesktop}>
+            <LocationSearch />
+          </Box>
+          <Box sx={displayOnDesktop}>
+            <ProfileSetiings />
+          </Box>
+          <Box sx={{display: {xs: 'flex', md: 'none'}}}>
+            <MobileSearch />
+          </Box>
         </Box>
       </Container>
     </Box>
